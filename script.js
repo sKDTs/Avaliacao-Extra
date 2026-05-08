@@ -20,10 +20,10 @@
         return false;
       }
 
-      // VALIDAÇÃO DO EMAIL: mínimo 5 caracteres
-      if (email.length < 5) {
-        alert("❌ O email deve ter no mínimo 5 caracteres");
-        status.innerText = "❌ O email deve ter no mínimo 5 caracteres.";
+      // VALIDAÇÃO DO EMAIL: mínimo 15 caracteres
+      if (email.length < 15) {
+        alert("❌ O email deve ter no mínimo 15 caracteres");
+        status.innerText = "❌ O email deve ter no mínimo 15 caracteres.";
         status.style.color = "red";
         status.style.fontWeight = "500";
         status.style.marginTop = "15px";
