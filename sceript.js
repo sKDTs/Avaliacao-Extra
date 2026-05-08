@@ -1,14 +1,7 @@
-const form = document.getElementById("formContato");
-
-form.addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const mensagem = document.getElementById("mensagem").value.trim();
-
-  const status = document.getElementById("mensagemStatus");
+function validateForm() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
   // Validação do nome
   if(nome.length < 3) {
@@ -52,4 +45,4 @@ form.addEventListener("submit", function(event) {
 
   form.reset();
 
-});
+};
