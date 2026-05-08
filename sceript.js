@@ -1,12 +1,24 @@
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function (event) {
+
+  event.preventDefault();
+
+  validateForm();
+
+});
+
 function validateForm() {
 
   const name = document.getElementById("name").value.trim();
+
   const email = document.getElementById("email").value.trim();
+
   const message = document.getElementById("message").value.trim();
 
   const status = document.getElementById("mensagemStatus");
 
-  // Campos obrigatórios
+  // CAMPOS OBRIGATÓRIOS
   if (name === "" || email === "" || message === "") {
 
     alert("Todos os campos são obrigatórios");
@@ -19,20 +31,33 @@ function validateForm() {
     return false;
   }
 
-  // Nome entre 3 e 10 caracteres
-  if (name.length < 3 || name.length > 10) {
+  // NOME
+  if (name.length < 3) {
 
-    alert("O nome deve conter entre 3 e 10 caracteres");
+    alert("O nome deve ter no mínimo 3 caracteres");
 
     status.innerText =
-      "O nome deve conter entre 3 e 10 caracteres.";
+      "O nome deve ter no mínimo 3 caracteres.";
 
     status.style.color = "red";
 
     return false;
   }
 
-  // Email entre 5 e 100 caracteres
+  // NOME MÁXIMO
+  if (name.length > 10) {
+
+    alert("O nome deve ter no máximo 10 caracteres");
+
+    status.innerText =
+      "O nome deve ter no máximo 10 caracteres.";
+
+    status.style.color = "red";
+
+    return false;
+  }
+
+  // EMAIL
   if (email.length < 5 || email.length > 100) {
 
     alert("O email deve conter entre 5 e 100 caracteres");
@@ -45,7 +70,7 @@ function validateForm() {
     return false;
   }
 
-  // Regex email
+  // REGEX EMAIL
   const emailPatern =
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
@@ -61,7 +86,7 @@ function validateForm() {
     return false;
   }
 
-  // Mensagem obrigatória
+  // MENSAGEM VAZIA
   if (message.length === 0) {
 
     alert("A mensagem é obrigatória");
@@ -74,7 +99,7 @@ function validateForm() {
     return false;
   }
 
-  // Mensagem máxima
+  // MENSAGEM MÁXIMA
   if (message.length > 265) {
 
     alert("A mensagem deve ter no máximo 265 caracteres");
@@ -87,7 +112,7 @@ function validateForm() {
     return false;
   }
 
-  // Sucesso
+  // SUCESSO
   alert("Formulário enviado com sucesso!");
 
   status.innerText =
@@ -95,17 +120,7 @@ function validateForm() {
 
   status.style.color = "green";
 
-  document.getElementById("contactForm").reset();
+  form.reset();
 
   return true;
 }
-
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    validateForm();
-
-  });
