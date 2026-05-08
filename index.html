@@ -54,7 +54,7 @@
           com profissionais apaixonados por animais.
         </p>
 
-        <a href="#contato" class="btn">
+        <a href="#servicos" class="btn">
           Agendar Atendimento
         </a>
 
@@ -118,6 +118,8 @@
   <section id="servicos" class="servicos">
 
     <h2>Nossos Serviços</h2>
+    
+    <p class="subtitulo-servicos">🐾 Clique abaixo para agendar o horário do seu animal camarada 🐾</p>
 
     <div class="cards">
 
@@ -188,37 +190,6 @@
       </div>
     </div>
 
-    <form id="contactForm">
-
-      <input
-        type="text"
-        id="name"
-        placeholder="Seu nome"
-        required
-      >
-
-      <input
-        type="email"
-        id="email"
-        placeholder="Seu e-mail"
-        required
-      >
-
-      <textarea
-        id="message"
-        placeholder="Digite sua mensagem"
-        maxlength="256"
-        required
-      ></textarea>
-
-      <button type="submit">
-        Enviar
-      </button>
-
-    </form>
-
-    <p id="mensagemStatus"></p>
-
   </section>
 
   <!-- Modal de Agendamento -->
@@ -253,6 +224,21 @@
         <div class="form-group">
           <label>🐾 Nome do Pet:</label>
           <input type="text" id="nomePet" placeholder="Digite o nome do seu pet">
+        </div>
+
+        <div class="form-group">
+          <label>👤 Seu nome:</label>
+          <input type="text" id="name" placeholder="Digite seu nome">
+        </div>
+
+        <div class="form-group">
+          <label>📧 Seu e-mail:</label>
+          <input type="email" id="email" placeholder="Digite seu e-mail">
+        </div>
+
+        <div class="form-group">
+          <label>💬 Sua mensagem:</label>
+          <textarea id="message" placeholder="Digite sua mensagem (opcional)" maxlength="256"></textarea>
         </div>
         
         <button id="confirmarAgendamento" class="btn-agendar">Confirmar Agendamento</button>
