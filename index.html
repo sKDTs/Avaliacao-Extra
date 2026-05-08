@@ -174,6 +174,25 @@
 
     <h2>Entre em Contato</h2>
 
+    <!-- Informações de contato adicionadas -->
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <div>
+          <strong>Telefone:</strong>
+          <a href="tel:+5548999999999">(48) 9 9999-9999</a>
+        </div>
+      </div>
+      
+      <div class="contact-item">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <strong>E-mail:</strong>
+          <a href="mailto:petlife@petlife.com">petlife@petlife.com</a>
+        </div>
+      </div>
+    </div>
+
     <form id="contactForm">
 
       <input
@@ -217,6 +236,59 @@
 
   </footer>
 
+  <style>
+    /* Estilos adicionais para as informações de contato */
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+    }
+
+    .contact-icon {
+      font-size: 24px;
+    }
+
+    .contact-item a {
+      color: #4CAF50;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #45a049;
+      text-decoration: underline;
+    }
+
+    .contact-item strong {
+      color: #333;
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .contact-item {
+        justify-content: center;
+      }
+    }
+  </style>
+
   <script>
     // CÓDIGO JAVASCRIPT PARA VALIDAÇÃO DO FORMULÁRIO
     const form = document.getElementById("contactForm");
@@ -240,10 +312,10 @@
         return false;
       }
 
-      // VALIDAÇÃO DO EMAIL: mínimo 15 caracteres
-      if (email.length < 15) {
-        alert("❌ O email deve ter no mínimo 15 caracteres");
-        status.innerText = "❌ O email deve ter no mínimo 15 caracteres.";
+      // VALIDAÇÃO DO EMAIL: mínimo 5 caracteres
+      if (email.length < 5) {
+        alert("❌ O email deve ter no mínimo 5 caracteres");
+        status.innerText = "❌ O email deve ter no mínimo 5 caracteres.";
         status.style.color = "red";
         status.style.fontWeight = "500";
         status.style.marginTop = "15px";
@@ -253,8 +325,8 @@
       // VALIDAÇÃO DO FORMATO DO EMAIL
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailPattern.test(email)) {
-        alert("❌ Digite um email válido (exemplo: teste@email.com)");
-        status.innerText = "❌ Digite um email válido (exemplo: teste@email.com)";
+        alert("❌ Digite um email válido (exemplo: nome@email.com)");
+        status.innerText = "❌ Digite um email válido (exemplo: nome@email.com)";
         status.style.color = "red";
         status.style.fontWeight = "500";
         status.style.marginTop = "15px";
