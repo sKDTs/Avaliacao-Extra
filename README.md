@@ -1,58 +1,33 @@
-# PetLife - Landing Page de Pet Shop
+# 🐾 PetLife - Sistema de Agendamento para Pets
 
-## Autor
-Kim de Tarso
+![PetLife Banner](https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop)
 
-## Sobre o Projeto
+## 📋 Sobre o Projeto
 
-Este projeto foi desenvolvido como atividade do desafio extra do curso Introdução à Programação Front-End e Back-End do SENAI/SC.
+A **PetLife** é uma plataforma web desenvolvida para facilitar o agendamento de serviços para pets, como banho e tosa e consultas veterinárias. O sistema oferece uma interface amigável e intuitiva para que os tutores possam agendar atendimentos de forma rápida e eficiente.
 
-O objetivo do projeto foi desenvolver uma landing page moderna, responsiva e funcional para um pet shop fictício chamado PetLife, aplicando conhecimentos de HTML, CSS e JavaScript adquiridos durante o curso.
+### ✨ Funcionalidades
 
-A proposta da página é funcionar como um cartão de visitas digital da marca, apresentando os principais serviços, diferenciais e formas de contato com o cliente.
+- ✅ **Cards interativos** para seleção de serviços
+- ✅ **Sistema de agendamento** com calendário visual
+- ✅ **Validação de formulário** em tempo real
+- ✅ **Registro automático** no console do navegador
+- ✅ **Design responsivo** para todos dispositivos
+- ✅ **Animações suaves** e feedback visual
+- ✅ **Informações de contato** da empresa
 
-## Tecnologias Utilizadas
+### 🎯 Serviços Oferecidos
 
-- HTML5
-- CSS3
-- JavaScript
-- Google Fonts
+1. **🐕 Banho e Tosa** - Higiene completa com produtos de qualidade
+2. **🩺 Consultas Veterinárias** - Atendimento especializado
+3. **🛍️ Produtos** - Rações, brinquedos e acessórios
 
-## Funcionalidades
+## 🚀 Tecnologias Utilizadas
 
-- Layout responsivo
-- Navegação entre seções
-- Seção de destaque com CTA
-- Seção sobre a empresa
-- Cards de serviços
-- Formulário de contato
-- Validação de formulário com JavaScript
+- **HTML5** - Estrutura da página
+- **CSS3** - Estilização e animações
+- **JavaScript** - Lógica de validação e agendamento
+- **Flatpickr** - Biblioteca de calendário
+- **Google Fonts** - Fontes personalizadas (Poppins)
 
-## Estrutura do Projeto
-
-O projeto foi dividido em três arquivos principais:
-
-- index.html → estrutura da página
-- style.css → estilização e responsividade
-- script.js → interatividade e validação
-
-Além disso, também foram utilizados elementos visuais e imagens para melhorar a experiência do usuário.
-
-## Etapas de Desenvolvimento
-
-Inicialmente foi criada a estrutura semântica da página utilizando HTML5. Após isso, foi realizada a estilização utilizando CSS3, aplicando conceitos como Flexbox, Grid Layout, responsividade, position relative e aspect-ratio.
-
-Na etapa seguinte, foi implementada a interatividade da aplicação utilizando JavaScript, principalmente na validação do formulário de contato.
-
-O projeto também buscou manter uma identidade visual moderna, amigável e adequada ao contexto de um pet shop.
-
-## Como Executar o Projeto
-
-1. Baixe os arquivos do projeto
-2. Extraia o arquivo .zip
-3. Abra a pasta do projeto
-4. Execute o arquivo index.html em qualquer navegador moderno
-
-## Considerações Finais
-
-Este projeto foi importante para consolidar conhecimentos fundamentais de desenvolvimento web front-end, incluindo organização estrutural, estilização, responsividade e manipulação básica do DOM com JavaScript.
+## 📁 Estrutura do Projeto
