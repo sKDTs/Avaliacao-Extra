@@ -1,80 +1,4 @@
-// CÓDIGO JAVASCRIPT PARA VALIDAÇÃO DO FORMULÁRIO
-const form = document.getElementById("contactForm");
-const status = document.getElementById("mensagemStatus");
-
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  // Pegando os valores e removendo espaços extras
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-
-  // VALIDAÇÃO DO NOME: mínimo 3 caracteres
-  if (name.length < 3) {
-    alert("❌ O nome deve ter no mínimo 3 caracteres");
-    status.innerText = "❌ O nome deve ter no mínimo 3 caracteres.";
-    status.style.color = "red";
-    status.style.fontWeight = "500";
-    status.style.marginTop = "15px";
-    return false;
-  }
-
-  // VALIDAÇÃO DO EMAIL: mínimo 5 caracteres (corrigido de 15 para 5)
-  if (email.length < 5) {
-    alert("❌ O email deve ter no mínimo 5 caracteres");
-    status.innerText = "❌ O email deve ter no mínimo 5 caracteres.";
-    status.style.color = "red";
-    status.style.fontWeight = "500";
-    status.style.marginTop = "15px";
-    return false;
-  }
-
-  // VALIDAÇÃO DO FORMATO DO EMAIL
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    alert("❌ Digite um email válido (exemplo: nome@email.com)");
-    status.innerText = "❌ Digite um email válido (exemplo: nome@email.com)";
-    status.style.color = "red";
-    status.style.fontWeight = "500";
-    status.style.marginTop = "15px";
-    return false;
-  }
-
-  // VALIDAÇÃO DA MENSAGEM: máximo 256 caracteres
-  if (message.length > 256) {
-    alert("❌ A mensagem deve ter no máximo 256 caracteres");
-    status.innerText = "❌ A mensagem deve ter no máximo 256 caracteres. Você usou " + message.length + " caracteres.";
-    status.style.color = "red";
-    status.style.fontWeight = "500";
-    status.style.marginTop = "15px";
-    return false;
-  }
-
-  // VALIDAÇÃO DA MENSAGEM: não pode estar vazia
-  if (message.length === 0) {
-    alert("❌ A mensagem é obrigatória");
-    status.innerText = "❌ A mensagem é obrigatória.";
-    status.style.color = "red";
-    status.style.fontWeight = "500";
-    status.style.marginTop = "15px";
-    return false;
-  }
-
-  // SUCESSO - Todas as validações passaram
-  alert("✅ Formulário enviado com sucesso!");
-  status.innerText = "✅ Mensagem enviada com sucesso! Entraremos em contato em breve.";
-  status.style.color = "green";
-  status.style.fontWeight = "500";
-  status.style.marginTop = "15px";
-  
-  // Resetar o formulário
-  form.reset();
-  
-  return true;
-});
-
-// CÓDIGO PARA OS CARDS CLICÁVEIS E CALENDÁRIO
+// CÓDIGO JAVASCRIPT PARA OS CARDS CLICÁVEIS E CALENDÁRIO
 let calendario = null;
 let servicoAtual = '';
 
@@ -89,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const dataInput = document.getElementById('dataAgendamento');
   const horarioSelect = document.getElementById('horarioAgendamento');
   const nomePetInput = document.getElementById('nomePet');
+  const nomeInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
 
   // Função para abrir o modal
   function abrirModal(servico) {
@@ -102,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     horarioSelect.value = '';
     nomePetInput.value = '';
+    if (nomeInput) nomeInput.value = '';
+    if (emailInput) emailInput.value = '';
+    if (messageInput) messageInput.value = '';
     
     // Inicializar o calendário se não existir
     if (!calendario) {
@@ -125,6 +55,67 @@ document.addEventListener('DOMContentLoaded', function() {
   // Função para fechar o modal
   function fecharModal() {
     modal.style.display = 'none';
+  }
+
+  // Função para validar o agendamento completo
+  function validarAgendamentoCompleto() {
+    const data = dataInput.value;
+    const horario = horarioSelect.value;
+    const nomePet = nomePetInput.value.trim();
+    const nome = nomeInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    // Validações
+    if (!data) {
+      alert('❌ Por favor, selecione uma data para o agendamento.');
+      return false;
+    }
+    
+    if (!horario) {
+      alert('❌ Por favor, selecione um horário para o agendamento.');
+      return false;
+    }
+    
+    if (!nomePet) {
+      alert('❌ Por favor, digite o nome do seu pet.');
+      return false;
+    }
+    
+    if (!nome) {
+      alert('❌ Por favor, digite seu nome.');
+      return false;
+    }
+    
+    if (nome.length < 3) {
+      alert('❌ Seu nome deve ter no mínimo 3 caracteres.');
+      return false;
+    }
+    
+    if (!email) {
+      alert('❌ Por favor, digite seu e-mail.');
+      return false;
+    }
+    
+    if (email.length < 5) {
+      alert('❌ Seu e-mail deve ter no mínimo 5 caracteres.');
+      return false;
+    }
+    
+    // Validação do formato do email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('❌ Digite um e-mail válido (exemplo: nome@email.com)');
+      return false;
+    }
+    
+    // Validação da mensagem (máximo 256 caracteres)
+    if (message.length > 256) {
+      alert(`❌ A mensagem deve ter no máximo 256 caracteres. Você usou ${message.length} caracteres.`);
+      return false;
+    }
+    
+    return true;
   }
 
   // Adicionar evento de clique nos cards
@@ -152,33 +143,37 @@ document.addEventListener('DOMContentLoaded', function() {
   // Confirmar agendamento
   if (confirmarBtn) {
     confirmarBtn.addEventListener('click', function() {
-      const data = dataInput.value;
-      const horario = horarioSelect.value;
-      const nomePet = nomePetInput.value.trim();
-      
-      if (!data) {
-        alert('❌ Por favor, selecione uma data para o agendamento.');
-        return;
+      if (validarAgendamentoCompleto()) {
+        const data = dataInput.value;
+        const horario = horarioSelect.value;
+        const nomePet = nomePetInput.value.trim();
+        const nome = nomeInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+        
+        // Sucesso no agendamento
+        let mensagemSucesso = `✅ Agendamento confirmado!\n\n`;
+        mensagemSucesso += `🐾 Serviço: ${servicoAtual}\n`;
+        mensagemSucesso += `📅 Data: ${data}\n`;
+        mensagemSucesso += `⏰ Horário: ${horario}\n`;
+        mensagemSucesso += `🐶 Pet: ${nomePet}\n`;
+        mensagemSucesso += `👤 Cliente: ${nome}\n`;
+        mensagemSucesso += `📧 E-mail: ${email}\n`;
+        
+        if (message) {
+          mensagemSucesso += `💬 Mensagem: ${message}\n`;
+        }
+        
+        mensagemSucesso += `\nEm breve você receberá a confirmação por e-mail!`;
+        
+        alert(mensagemSucesso);
+        
+        // Fechar modal
+        fecharModal();
+        
+        // Rolar para a seção de contato
+        document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
       }
-      
-      if (!horario) {
-        alert('❌ Por favor, selecione um horário para o agendamento.');
-        return;
-      }
-      
-      if (!nomePet) {
-        alert('❌ Por favor, digite o nome do seu pet.');
-        return;
-      }
-      
-      // Sucesso no agendamento
-      alert(`✅ Agendamento confirmado!\n\n🐾 Serviço: ${servicoAtual}\n📅 Data: ${data}\n⏰ Horário: ${horario}\n🐶 Pet: ${nomePet}\n\nEm breve você receberá a confirmação por e-mail!`);
-      
-      // Fechar modal
-      fecharModal();
-      
-      // Rolar para a seção de contato
-      document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
     });
   }
 });
