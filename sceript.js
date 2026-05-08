@@ -11,29 +11,35 @@ function validateForm() {
 
     alert("Todos os campos são obrigatórios");
 
-    status.innerText = "Todos os campos são obrigatórios.";
+    status.innerText =
+      "Todos os campos são obrigatórios.";
+
     status.style.color = "red";
 
     return false;
   }
 
-  // Nome
+  // Nome entre 3 e 10 caracteres
   if (name.length < 3 || name.length > 10) {
 
     alert("O nome deve conter entre 3 e 10 caracteres");
 
-    status.innerText = "O nome deve conter entre 3 e 10 caracteres.";
+    status.innerText =
+      "O nome deve conter entre 3 e 10 caracteres.";
+
     status.style.color = "red";
 
     return false;
   }
 
-  // Email tamanho
+  // Email entre 5 e 100 caracteres
   if (email.length < 5 || email.length > 100) {
 
     alert("O email deve conter entre 5 e 100 caracteres");
 
-    status.innerText = "O email deve conter entre 5 e 100 caracteres.";
+    status.innerText =
+      "O email deve conter entre 5 e 100 caracteres.";
+
     status.style.color = "red";
 
     return false;
@@ -47,7 +53,9 @@ function validateForm() {
 
     alert("Por favor, insira um email válido");
 
-    status.innerText = "Por favor, insira um email válido.";
+    status.innerText =
+      "Por favor, insira um email válido.";
+
     status.style.color = "red";
 
     return false;
@@ -58,7 +66,9 @@ function validateForm() {
 
     alert("A mensagem é obrigatória");
 
-    status.innerText = "A mensagem é obrigatória.";
+    status.innerText =
+      "A mensagem é obrigatória.";
+
     status.style.color = "red";
 
     return false;
@@ -71,6 +81,7 @@ function validateForm() {
 
     status.innerText =
       "A mensagem deve ter no máximo 265 caracteres.";
+
     status.style.color = "red";
 
     return false;
@@ -79,7 +90,9 @@ function validateForm() {
   // Sucesso
   alert("Formulário enviado com sucesso!");
 
-  status.innerText = "Mensagem enviada com sucesso!";
+  status.innerText =
+    "Mensagem enviada com sucesso!";
+
   status.style.color = "green";
 
   document.getElementById("contactForm").reset();
@@ -89,7 +102,7 @@ function validateForm() {
 
 document
   .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", function(event) {
 
     event.preventDefault();
 
