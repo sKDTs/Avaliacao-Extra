@@ -1,48 +1,98 @@
 function validateForm() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
 
-  // Validação do nome
-  if(nome.length < 3) {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-    status.innerText = "O nome deve ter no mínimo 3 caracteres.";
+  const status = document.getElementById("mensagemStatus");
+
+  // Campos obrigatórios
+  if (name === "" || email === "" || message === "") {
+
+    alert("Todos os campos são obrigatórios");
+
+    status.innerText = "Todos os campos são obrigatórios.";
     status.style.color = "red";
 
-    return;
+    return false;
   }
 
-  // Validação do email
-  if(email.length < 5 || !email.includes("@")) {
+  // Nome
+  if (name.length < 3 || name.length > 10) {
 
-    status.innerText = "Digite um e-mail válido.";
+    alert("O nome deve conter entre 3 e 10 caracteres");
+
+    status.innerText = "O nome deve conter entre 3 e 10 caracteres.";
     status.style.color = "red";
 
-    return;
+    return false;
+  }
+
+  // Email tamanho
+  if (email.length < 5 || email.length > 100) {
+
+    alert("O email deve conter entre 5 e 100 caracteres");
+
+    status.innerText = "O email deve conter entre 5 e 100 caracteres.";
+    status.style.color = "red";
+
+    return false;
+  }
+
+  // Regex email
+  const emailPatern =
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+  if (!emailPatern.test(email)) {
+
+    alert("Por favor, insira um email válido");
+
+    status.innerText = "Por favor, insira um email válido.";
+    status.style.color = "red";
+
+    return false;
   }
 
   // Mensagem obrigatória
-  if(mensagem.length === 0) {
+  if (message.length === 0) {
+
+    alert("A mensagem é obrigatória");
 
     status.innerText = "A mensagem é obrigatória.";
     status.style.color = "red";
 
-    return;
+    return false;
   }
 
-  // Limite máximo da mensagem
-  if(mensagem.length > 265) {
+  // Mensagem máxima
+  if (message.length > 265) {
 
-    status.innerText = "A mensagem deve ter no máximo 265 caracteres.";
+    alert("A mensagem deve ter no máximo 265 caracteres");
+
+    status.innerText =
+      "A mensagem deve ter no máximo 265 caracteres.";
     status.style.color = "red";
 
-    return;
+    return false;
   }
 
   // Sucesso
+  alert("Formulário enviado com sucesso!");
+
   status.innerText = "Mensagem enviada com sucesso!";
   status.style.color = "green";
 
-  form.reset();
+  document.getElementById("contactForm").reset();
 
-};
+  return true;
+}
+
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    validateForm();
+
+  });
