@@ -16,6 +16,11 @@
   >
 
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Bibliotecas para o calendário -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
 </head>
 
 <body>
@@ -116,52 +121,42 @@
 
     <div class="cards">
 
-      <div class="card">
-
+      <div class="card clickable-card" data-servico="Banho e Tosa">
         <img
           src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=1200&auto=format&fit=crop"
           alt="Banho e Tosa"
         >
-
         <h3>Banho e Tosa</h3>
-
         <p>
           Higiene completa para seu pet
           com produtos de qualidade.
         </p>
-
+        <div class="card-badge">📅 Clique para agendar</div>
       </div>
 
-      <div class="card">
-
+      <div class="card clickable-card" data-servico="Consulta Veterinária">
         <img
           src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop"
           alt="Consulta Veterinária"
         >
-
         <h3>Consultas</h3>
-
         <p>
           Atendimento veterinário especializado
           para garantir a saúde do seu animal.
         </p>
-
+        <div class="card-badge">📅 Clique para agendar</div>
       </div>
 
       <div class="card">
-
         <img
           src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop"
           alt="Produtos Pet"
         >
-
         <h3>Produtos</h3>
-
         <p>
           Rações, brinquedos e acessórios
           para todas as fases da vida do pet.
         </p>
-
       </div>
 
     </div>
@@ -226,6 +221,45 @@
 
   </section>
 
+  <!-- Modal de Agendamento -->
+  <div id="agendamentoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>📅 Agende seu Atendimento</h2>
+      <p id="servicoSelecionado"></p>
+      
+      <div class="agendamento-form">
+        <div class="form-group">
+          <label>📅 Selecione a data:</label>
+          <input type="text" id="dataAgendamento" placeholder="Clique para selecionar uma data">
+        </div>
+        
+        <div class="form-group">
+          <label>⏰ Selecione o horário:</label>
+          <select id="horarioAgendamento">
+            <option value="">Selecione um horário</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>🐾 Nome do Pet:</label>
+          <input type="text" id="nomePet" placeholder="Digite o nome do seu pet">
+        </div>
+        
+        <button id="confirmarAgendamento" class="btn-agendar">Confirmar Agendamento</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
 
   <footer>
@@ -236,60 +270,7 @@
 
   </footer>
 
-  <style>
-    /* Estilos adicionais para as informações de contato */
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 30px;
-      padding: 20px;
-      background: #f5f5f5;
-      border-radius: 12px;
-      flex-wrap: wrap;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 16px;
-    }
-
-    .contact-icon {
-      font-size: 24px;
-    }
-
-    .contact-item a {
-      color: #4CAF50;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .contact-item a:hover {
-      color: #45a049;
-      text-decoration: underline;
-    }
-
-    .contact-item strong {
-      color: #333;
-      margin-right: 5px;
-    }
-
-    @media (max-width: 768px) {
-      .contact-info {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-      
-      .contact-item {
-        justify-content: center;
-      }
-    }
-  </style>
-  
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
