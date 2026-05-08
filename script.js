@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return false;
     }
     
-    if (email.length < 5) {
-      alert('❌ Seu e-mail deve ter no mínimo 5 caracteres.');
+    if (email.length < 15) {
+      alert('❌ Seu e-mail deve ter no mínimo 15 caracteres.');
       console.log(`%c❌ Erro: E-mail muito curto (${email.length} caracteres)`, 'color: #f44336; font-weight: bold;');
       return false;
     }
