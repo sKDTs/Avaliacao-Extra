@@ -138,15 +138,25 @@ Veja os dados formatados com cores e separadores
 Exemplo de saída no console:
 
 ═══════════════════════════════════════════════════════════
+
 📋 NOVO AGENDAMENTO REALIZADO
+
 ═══════════════════════════════════════════════════════════
+
 🐾 Serviço: Banho e Tosa
+
 📅 Data: 15/01/2026
+
 ⏰ Horário: 14:00
+
 🐶 Nome do Pet: Rex
+
 👤 Nome do Cliente: João Silva
+
 📧 E-mail: joao@email.com
+
 💬 Mensagem: Meu pet precisa de banho especial
+
 ═══════════════════════════════════════════════════════════
 
  Responsividade
